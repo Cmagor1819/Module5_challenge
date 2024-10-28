@@ -43,11 +43,17 @@ Analysis:
 
 This section at the top of the code describes the conclusions that were drawn from the data and summaries.
 
-I got/regerenced the following code from Xpert Learning Assistant/GitHub
+I got/regerenced the following code from Xpert Learning Assistant/GitHub:
+
 duplicate_mice = merged_df.loc[merged_df.duplicated(subset=["Mouse ID", "Timepoint",]), "Mouse ID"].unique()
+
 clean_mouse_df = merged_df[merged_df["Mouse ID"].isin(duplicate_mice) ==False]
+
 def outliers(regimen):
     regimen_data = merged_timepoint_df.loc[merged_timepoint_df["Drug Regimen"] == regimen]["Tumor Volume (mm3)"]
+    
 capo_df = merged_df.loc[merged_df["Drug Regimen"] == "Capomulin"].groupby("Mouse ID")
+
 for treatment in range(len(merged_timepoint_df)-1):
+
 unique_mice = clean_mouse_df[["Mouse ID", "Sex"]].drop_duplicates()
